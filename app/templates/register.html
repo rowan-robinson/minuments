@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+
+<!-- CSS -->
+<link href="static/register.css" type="text/css" rel="stylesheet">
+
+<!-- MAIN -->
+<div class="register-c1">
+    <div class="maincontent-c1">
+        <p>
+            Please enter your details below to get started.
+        </p>
+    </div>
+    
+    <!-- flashed message -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for message in messages %}
+            <div>
+                <p class="{{ message[0] }}">
+                    {{ message[1] }}
+                </p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/register/submit" method="post" name="submit-register-details" class="register-c1">
+        {{ form.hidden_tag() }}
+
+        <div class="spacer-vertical"></div>
+
+        <h2 class="subheader-text">
+            PERSONAL INFORMATION
+        </h2>
+
+        <div class="register-c2">
+            <div class="register-c3">
+                <div class="register-field">
+                    <label for="firstname" class="field-label">
+                        FIRST NAME
+                    </label>
+        
+                    <input type="text" class="field-input" id="firstname" name="firstname">
+                </div>
+        
+                <div class="register-field">
+                    <label for="lastname" class="field-label">
+                        LAST NAME
+                    </label>
+        
+                    <input type="text" class="field-input" id="lastname" name="lastname">
+                </div>
+            </div>
+
+            <div class="register-c3">
+                <div class="register-field">
+                    <label for="username" class="field-label">
+                        USERNAME
+                    </label>
+        
+                    <input type="text" class="field-input" id="username" name="username">
+                </div>
+        
+                <div class="register-field">
+                    <label for="password" class="field-label">
+                        PASSWORD
+                    </label>
+        
+                    <input type="password" class="field-input" id="password" name="password">
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer-vertical"></div>
+
+        <h2 class="subheader-text">
+            FINANCIAL INFORMATION
+        </h2>
+
+        <div class="register-c2">
+            <div class="register-c3">
+                <div class="register-field">
+                    <label for="cardholder" class="field-label">
+                        CARD HOLDER
+                    </label>
+        
+                    <input type="text" class="field-input" id="cardholder" name="cardholder">
+                </div>
+        
+                <div class="register-field">
+                    <label for="cardnumber" class="field-label">
+                        CARD NUMBER
+                    </label>
+        
+                    <input type="text" class="field-input" id="cardnumber" name="cardnumber">
+                </div>
+
+                <div class="register-field">
+                    <label for="cardexpiry" class="field-label">
+                        CARD EXPIRY
+                    </label>
+        
+                    <input type="text" class="field-input" id="cardexpiry" name="cardexpiry">
+                </div>
+        
+                <div class="register-field">
+                    <label for="cardcvv" class="field-label">
+                        CARD CVV
+                    </label>
+        
+                    <input type="text" class="field-input" id="cardcvv" name="cardcvv">
+                </div>
+            </div>
+
+            <div class="register-c3">
+                <div class="register-field">
+                    <label for="addressline1" class="field-label">
+                        ADDRESS LINE 1
+                    </label>
+        
+                    <input type="text" class="field-input" id="addressline1" name="addressline1">
+                </div>
+        
+                <div class="register-field">
+                    <label for="addressline2" class="field-label">
+                        ADDRESS LINE 2
+                    </label>
+        
+                    <input type="text" class="field-input" id="addressline2" name="addressline2">
+                </div>
+
+                <div class="register-field">
+                    <label for="addressline3" class="field-label">
+                        ADDRESS LINE 3
+                    </label>
+        
+                    <input type="text" class="field-input" id="addressline3" name="addressline3">
+                </div>
+        
+                <div class="register-field">
+                    <label for="zippostcode" class="field-label">
+                        ZIPCODE / POSTCODE
+                    </label>
+        
+                    <input type="text" class="field-input" id="zippostcode" name="zippostcode">
+                </div>
+            </div>
+        </div>
+
+        <div class="register-c2">
+            <input type="submit" value="REGISTER" class="register-button">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

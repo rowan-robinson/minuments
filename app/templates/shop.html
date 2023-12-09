@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+
+<!-- CSS -->
+<link href="static/shop.css" type="text/css" rel="stylesheet">
+
+<div class="spacer-vertical">
+</div>
+
+<!-- MAIN -->
+<div class="catalogue-c1"> <!-- the list of minuments -->
+    {% if items %}
+        {% for x in range(0, items|length) %}
+            <a href="/item{{ items[x][0] }}"> <!-- an individual minument [RIFFA CLOCK TOWER] -->
+                <div class="catalogue-c2"> 
+                    <div class="catalogue-c3"> <!-- city-name + flag -->
+                        <div class="catalogue-c4"> <!-- city-name -->
+                            <p class="catalogue-city">
+                                {{ items[x][1] }}
+                            </p>
+                        </div>
+        
+                        <div class="catalogue-c4"> <!-- flag -->
+                            <img src="static/resources/flags/{{ items[x][2] }}.png"
+                                class="catalogue-flag"
+                                alt="{{ items[x][3] }}.">
+                        </div>
+                    </div>
+        
+                    <div class="catalogue-c3"> <!-- monument-name -->
+                        <p class="catalogue-monument">
+                            {{ items[x][4] }}
+                        </p>
+                    </div>
+        
+                    <div class="catalogue-c3"> <!-- image -->
+                        <img src="static/resources/monuments/{{ items[x][0] }}.png"
+                            class="catalogue-image"
+                            alt="{{ items[x][5] }}">
+                    </div>
+        
+                    <div class="catalogue-c5"> <!-- tags and star -->
+                        {% if items[x][6] %}
+                            {% for y in range(0, items[x][6]|length) %}
+                                <div class="catalogue-tag">
+                                    {{ items[x][6][y] }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+        
+                        <!-- spacer -->
+                        <div class="spacer-horizontal"></div>
+        
+                        <div class="catalogue-c6">
+                            <img src="static/resources/star-{{ items[x][8] }}.png"
+                                class="catalogue-star"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    {% else %}
+        <p class="catalogue-info">
+            There are no items to display.
+        </p>
+    {% endif %}
+</div>
+
+{% endblock %}

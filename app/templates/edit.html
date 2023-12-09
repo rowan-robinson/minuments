@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+
+<!-- CSS -->
+<link href="static/edit.css" type="text/css" rel="stylesheet">
+
+<!-- MAIN -->
+<div class="edit-c1">
+    <div class="maincontent-c1">
+        <p>
+            Changes will only apply if you press the APPLY CHANGES button below.
+        </p>
+    </div>
+
+        
+    <!-- flashed message -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for message in messages %}
+            <div>
+                <p class="{{ message[0] }}">
+                    {{ message[1] }}
+                </p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if request.path == "/edit-personal-info" %}
+        <form action="/edit-personal-info/submit" method="post" name="edit-personal-info" class="edit-c1">
+            {{ form.hidden_tag() }}
+
+            <div class="edit-c2">
+                <div class="edit-c3">
+                    <div class="edit-field">
+                        <label for="firstname" class="field-label">
+                            FIRST NAME
+                        </label>
+            
+                        <input type="text" class="field-input" id="firstname" name="firstname" value="{{ current_user.firstname }}">
+                    </div>
+
+                    <div class="edit-field">
+                        <label for="lastname" class="field-label">
+                            LAST NAME
+                        </label>
+            
+                        <input type="text" class="field-input" id="lastname" name="lastname" value="{{ current_user.lastname }}">
+                    </div>
+                </div>
+
+                <div class="edit-c3">
+                    <div class="edit-field">
+                        <label for="username" class="field-label">
+                            USERNAME
+                        </label>
+            
+                        <input type="text" class="field-input" id="username" name="username" value="{{ current_user.username }}">
+                    </div>
+
+                    <div class="profile-info">
+                        <div class="info-label">
+                            PASSWORD (cannot be changed)
+                        </div>
+                        <div class="info-data">
+                            ••••••••
+                        </div>
+                    </div>
+
+                    <!--<div class="edit-field">
+                        <label for="password" class="field-label">
+                            PASSWORD
+                        </label>
+            
+                        <input type="text" class="field-input" id="password" name="password" value="•••• flag">
+                    </div>-->
+                </div>
+            </div>
+
+            <div class="edit-c2">
+                <input type="submit" value="APPLY CHANGES" class="edit-button">
+            </div>
+        </form>
+
+
+    {% endif %}
+
+    {% if request.path == "/edit-financial-info" %}
+        <form action="/edit-financial-info/submit" method="post" name="edit-financial-info" class="edit-c1">
+            {{ form.hidden_tag() }}
+            
+            <div class="edit-c2">
+                <div class="edit-c3">
+                    <div class="edit-field">
+                        <label for="cardholder" class="field-label">
+                            CARD HOLDER
+                        </label>
+            
+                        <input type="text" class="field-input" id="cardholder" name="cardholder" value="{{ current_user.cardholder }}">
+                    </div>
+            
+                    <div class="edit-field">
+                        <label for="cardnumber" class="field-label">
+                            CARD NUMBER
+                        </label>
+            
+                        <input type="text" class="field-input" id="cardnumber" name="cardnumber" value="{{ current_user.cardnumber }}">
+                    </div>
+
+                    <div class="edit-field">
+                        <label for="cardexpiry" class="field-label">
+                            CARD EXPIRY
+                        </label>
+            
+                        <input type="text" class="field-input" id="cardexpiry" name="cardexpiry" value="{{ current_user.cardexpiry }}">
+                    </div>
+            
+                    <div class="edit-field">
+                        <label for="cardcvv" class="field-label">
+                            CARD CVV
+                        </label>
+            
+                        <input type="text" class="field-input" id="cardcvv" name="cardcvv" value="{{ current_user.cardcvv }}">
+                    </div>
+                </div>
+
+                <div class="edit-c3">
+                    <div class="edit-field">
+                        <label for="addressline1" class="field-label">
+                            ADDRESS LINE 1
+                        </label>
+            
+                        <input type="text" class="field-input" id="addressline1" name="addressline1" value="{{ current_user.addressline1 }}">
+                    </div>
+            
+                    <div class="edit-field">
+                        <label for="addressline2" class="field-label">
+                            ADDRESS LINE 2
+                        </label>
+            
+                        <input type="text" class="field-input" id="addressline2" name="addressline2" value="{{ current_user.addressline2 }}">
+                    </div>
+
+                    <div class="edit-field">
+                        <label for="addressline3" class="field-label">
+                            ADDRESS LINE 3
+                        </label>
+            
+                        <input type="text" class="field-input" id="addressline3" name="addressline3" value="{{ current_user.addressline3 }}">
+                    </div>
+            
+                    <div class="edit-field">
+                        <label for="zippostcode" class="field-label">
+                            ZIPCODE / POSTCODE
+                        </label>
+            
+                        <input type="text" class="field-input" id="zippostcode" name="zippostcode" value="{{ current_user.zippostcode }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="edit-c2">
+                <input type="submit" value="APPLY CHANGES" class="edit-button">
+            </div>
+        </form>
+    {% endif %}
+</div>
+
+{% endblock %}

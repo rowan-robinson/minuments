@@ -1,0 +1,273 @@
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- CSS -->
+        <link href="static/base.css" type="text/css" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="icon" type="image/gif" href="static/resources/icon.png">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <!-- Title -->
+        {% if title %}
+            <title>
+                {{ title }}
+            </title>
+        {% else %}
+            <title>
+                MINUMENTS
+            </title>
+        {% endif %}
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <div class="navbar-c1">
+            <div class="navbar-c2">
+                <div class="navbar-c3">
+                    <a href="/">
+                        <img src="static/resources/icon.png"
+                            class="navbar-logo"
+                            alt="The logo for the website.">
+                    </a>
+                </div>
+            </div>
+
+            <div class="navbar-c2">
+                <div class="navbar-c3" id="home">
+                    <a href="/">
+                        <p class="navbar-link">
+                            HOME
+                        </p>
+                    </a>
+                </div>
+
+                <div class="navbar-c3" id="shop">
+                    <a href="shop">
+                        <p class="navbar-link">
+                            SHOP
+                        </p>
+                    </a>
+                </div>
+
+                {% if current_user.is_authenticated %}
+                    <div class="navbar-c3" id="profile">
+                        <a href="profile">
+                            <p class="navbar-link">
+                                PROFILE
+                            </p>
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="navbar-c3" id="login">
+                        <a href="login">
+                            <p class="navbar-link">
+                                LOG IN
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="navbar-c3" id="register">
+                        <a href="register">
+                            <p class="navbar-link">
+                                REGISTER
+                            </p>
+                        </a>
+                    </div>
+                {% endif %}
+
+                <div></div>
+            </div>
+
+            <!-- for spacing -->
+            <div class="navbar-c2"><div class="navbar-c3"></div></div>
+        </div>
+
+        <!-- HEADER -->
+        <div class="header-c1">
+            <h1 class="header-text">
+                {% if header %}
+                    {{ header }}
+                {% else %}
+                    WELCOME to
+                {% endif %}
+            </h1>
+        </div>
+
+        <!-- MAIN PAGE CONTENT -->
+        {% if header %}
+            {% block maincontent %}{% endblock %}
+        {% else %}
+
+            <div class="maincontent-c1">
+                    <img src="static/resources/logo.png"
+                        class="logo-big"
+                        alt="A larger image of the logo for the website, containing an additional wordmark.">
+            </div>
+
+            <div class="spacer-vertical"></div>
+
+            <div class="maincontent-c1">
+                <p>
+                    A <b>MINUMENT</b> (or a mini-monument) is a creative piece, a small 3D-printed recreation of a monument (in the real-world or not) resting on a 2" by 2" base. You can find a catalogue of these on this website's storefront - you can also favourite items and purchase them if you're logged in (with all of them each costing the same - fair pricing!). You might need to register an account under REGISTER, at the top of the page, if you don't have one registered already.
+                </p>
+            </div>
+
+            <div class="spacer-vertical"></div>
+
+            <div class="maincontent-c1">
+                <h2 class="references-header">
+                    REFERENCES
+                </h2>
+            </div>
+
+            <div class="maincontent-c3">
+                <div class="maincontent-c2 maincontent-rowgap">
+                    <!-- 1 -->
+                    <div class="maincontent-c1">
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>1</b>
+                            </p>
+                        </div>
+
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>. Base image for RIFFA CLOCK TOWER</b> can be found at
+                            </p>
+
+                            <a href="https://commons.wikimedia.org/wiki/File:Riffa_Riffa_Clock_Tower_04.jpg" class="references-link">
+                                https://commons.wikimedia.org/wiki/File:Riffa_Riffa_Clock_Tower_04.jpg
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="maincontent-c1">
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>2</b>
+                            </p>
+                        </div>
+
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>. Base image for SIGN FOR ART</b> can be found at
+                            </p>
+
+                            <a href="https://www.facebook.com/photo/?fbid=10155098299378251&set=pcb.10155098300943251" class="references-link">
+                                https://www.facebook.com/photo/?fbid=10155098299378251&set=pcb.10155098300943251
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="maincontent-c1">
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>3</b>
+                            </p>
+                        </div>
+
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>. Base image for BURJ KHALIFA</b> can be found at
+                            </p>
+
+                            <a href="https://medium.com/@chandrapsc10/unown-facts-about-burj-khalifa-8e068c10dcae" class="references-link">
+                                https://medium.com/@chandrapsc10/unown-facts-about-burj-khalifa-8e068c10dcae
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="maincontent-c1">
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>4</b>
+                            </p>
+                        </div>
+
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>. Base image for EIFFEL TOWER</b> can be found at
+                            </p>
+
+                            <a href="https://www.cntraveler.com/stories/2014-03-28/eiffel-tower-paris-anniversary-125-years" class="references-link">
+                                https://www.cntraveler.com/stories/2014-03-28/eiffel-tower-paris-anniversary-125-years
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="maincontent-c1">
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>5</b>
+                            </p>
+                        </div>
+
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>. Base image for UNITED TOWER</b> can be found at
+                            </p>
+
+                            <a href="https://www.amusingplanet.com/2015/06/the-united-tower-in-bahrain-bay-looks.html" class="references-link">
+                                https://www.amusingplanet.com/2015/06/the-united-tower-in-bahrain-bay-looks.html
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="maincontent-c1">
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>6</b>
+                            </p>
+                        </div>
+
+                        <div class="maincontent-c2">
+                            <p class="references-text">
+                                <b>. Base image for GATEWAY ARCH</b> can be found at
+                            </p>
+
+                            <a href="https://savingplaces.org/stories/the-gateway-arch-a-global-icon-reconnects-to-st-louis" class="references-link">
+                                https://savingplaces.org/stories/the-gateway-arch-a-global-icon-reconnects-to-st-louis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- FOOTER -->
+        <div class="footer-c1">
+            <div class="footer-c2">
+                <p class="footer-wordmark">
+                    MINUMENTS
+                </p>
+                <p class="footer-text">
+                    ©
+                </p>
+                <p class="footer-text">
+                    Rowan Robinson, 2023
+                </p>
+                <p class="footer-text">
+                    |
+                </p>
+                <p class="footer-text">
+                    sc22r2r@leeds.ac.uk
+                </p>
+                <p class="footer-text">
+                    |
+                </p>
+                <p class="footer-text">
+                    for CW2 of COMP2011
+                </p>
+            </div>
+        </div>
+    </body>
+  </html>

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+
+<!-- CSS -->
+<link href="static/item.css" type="text/css" rel="stylesheet">
+<!-- JS -->
+<script src="static/item.js"></script>
+
+<div class="minument-c1 flashed-error" id="login-message">
+    You need to be logged in to use that feature
+</div>
+
+<!-- MAIN -->
+<div class="minument-c1">
+    {% if item %}
+        <!-- image, price, favourite button, buy button -->
+        <div class="minument-c2">
+            <div class="minument-c3">
+                <img src="static/resources/monuments/{{ item[0] }}.png"
+                class="minument-image"
+                alt="{{ item[5] }}">
+            </div>
+
+            <div class="minument-c3-sb">
+                <div class="minument-c4">
+                    <div class="minument-price-pound">
+                        £
+                    </div>
+                    <div class="minument-price-number">
+                        20.00
+                    </div>
+                </div>
+
+                <div class="minument-c3">
+                    <!-- Using {{ item[5] }} in the id to pass that value over to the jQuery -->
+                    <img src="static/resources/star-{{ item[8] }}.png"
+                    class="minument-star"
+                    id="{{ item[0] }}"
+                    alt="">
+                </div>
+            </div>
+
+            <div class="minument-c3">
+                <div class="minument-buybutton">
+                    BUY NOW
+                </div>
+            </div>
+        </div>
+
+        <!-- city, country flag, name, tags, description and history -->
+        <div class="minument-c2">
+            <div class="minument-c5">
+                <div class="minument-c3">
+                    <p class="minument-city">
+                        {{ item[1] }}
+                    </p>
+
+                    <img src="static/resources/flags/{{ item[2] }}.png"
+                        class="minument-flag"
+                        alt="{{ item[3] }}">
+                </div>
+
+                <div class="minument-c3">
+                    <p class="minument-monument">
+                        {{ item[4] }}
+                    </p>
+                </div>
+
+                <div class="minument-c3-tags">
+                    {% if item[6] %}
+                        {% for y in range(0, item[6]|length) %}
+                            <div class="minument-tag">
+                                {{ item[6][y] }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="minument-c3-description">
+                <p class="minument-description">
+                    {{ item[7] }}
+                </p>
+
+                <p class="minument-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+    {% else %}
+        <p class="minument-monument">
+            Failed to load the Minument.
+        </p>
+    {% endif %}
+</div>
+
+{% endblock %}

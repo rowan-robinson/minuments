@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+
+<!-- CSS -->
+<link href="static/login.css" type="text/css" rel="stylesheet">
+
+<!-- MAIN -->
+<div class="login-c1">
+    <div class="maincontent-c1">
+        <p>
+            Please enter your username and password to get started, or REGISTER above if you don't have an account.
+        </p>
+    </div>
+
+    <!-- flashed message -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for message in messages %}
+            <div>
+                <p class="{{ message[0] }}">
+                    {{ message[1] }}
+                </p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/login/submit" method="post" name="submit-login-details" class="login-c1">
+        {{ form.hidden_tag() }}
+
+        <div class="login-c2">
+            <div class="login-field">
+                <label for="username" class="field-label">
+                    USERNAME
+                </label>
+    
+                <input type="text" class="field-input" id="username" name="username">
+            </div>
+    
+            <div class="login-field">
+                <label for="password" class="field-label">
+                    PASSWORD
+                </label>
+    
+                <input type="password" class="field-input" id="password" name="password">
+            </div>
+        </div>
+
+        <div class="login-c2">
+            <input type="submit" value="LOG IN" class="login-button">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
